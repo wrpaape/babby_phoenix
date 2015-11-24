@@ -1,5 +1,28 @@
-<div>
-  <h1>
-    Babby's First Phoenix
-  </h1>
-</div>
+<h2>Listing babbies</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Bio</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for babby <- @babbies do %>
+    <tr>
+      <td><%= babby.name %></td>
+      <td><%= babby.bio %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: babby_path(@conn, :show, babby), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: babby_path(@conn, :edit, babby), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: babby_path(@conn, :delete, babby), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New babby", to: babby_path(@conn, :new) %>

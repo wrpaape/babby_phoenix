@@ -1,5 +1,18 @@
-<pre>
-  <code>
-    ayy <%= @messenger %>
-  </code>
-</pre>
+<h2>Show babby</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @babby.name %>
+  </li>
+
+  <li>
+    <strong>Bio:</strong>
+    <%= @babby.bio %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: babby_path(@conn, :edit, @babby) %>
+<%= link "Back", to: babby_path(@conn, :index) %>
