@@ -16,7 +16,9 @@ defmodule BabbyPhoenix.Router do
   scope "/", BabbyPhoenix do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
+    get "/",                 PageController,  :index
+    get "/babby",            BabbyController, :index
+    get "/babby/:messenger", BabbyController, :show
   end
 
   # Other scopes may use custom stacks.
